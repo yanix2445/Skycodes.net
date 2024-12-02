@@ -2,20 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Arrière-plan flottant */
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-floating {
+  animation: floating 8s ease-in-out infinite;
+}
+
+@keyframes floating-reverse {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-floating-reverse {
+  animation: floating-reverse 8s ease-in-out infinite;
+}
+
+/* Dégradé subtil pour le texte */
+@keyframes text-glow {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+      0 0 10px rgba(128, 0, 255, 0.7);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(128, 0, 255, 0.9),
+      0 0 25px rgba(0, 128, 255, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+      0 0 10px rgba(128, 0, 255, 0.7);
+  }
+}
+
+/* Animation pour le texte */
+.text-glow {
+  animation: text-glow 2.5s ease-in-out infinite;
 }
